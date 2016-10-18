@@ -157,6 +157,7 @@ public class ScheduleFragment extends Fragment {
         for (CitiesFromTo city : model.getCitiesFrom())
             cities.add(city.getCityTitle());
 
+        // i нужна чтобы не нарушать красоту foreach
         for (CitiesFromTo cityId : model.getCitiesFrom()) {
             i++;
             stationFromTo.put(cityId.getCityTitle(), new ArrayList<String>() {{
@@ -202,6 +203,7 @@ public class ScheduleFragment extends Fragment {
         });
     }
 
+    //предусматриваем все возможные случаи
     void fillInfoTV() {
         if (!mBinding.stationFrom.getText().toString().isEmpty() && mBinding.stationTo.getText().toString().isEmpty()
                 && mBinding.date.getText().toString().isEmpty())
@@ -239,6 +241,7 @@ public class ScheduleFragment extends Fragment {
             mBinding.infoText.setText(""); //можно было бы и видимость менять, но тут это не решает(без разницы)
     }
 
+    //сохраняем данные, чтобы не грузить лишний раз, когда меняется/скрывается activity
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);

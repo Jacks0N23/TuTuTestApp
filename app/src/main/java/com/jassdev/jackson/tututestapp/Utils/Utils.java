@@ -1,8 +1,5 @@
 package com.jassdev.jackson.tututestapp.Utils;
 
-import android.content.Context;
-import android.widget.Toast;
-
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -16,14 +13,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class Utils {
-
-    public static void makeToastSHORT(String txt, Context context) {
-        Toast.makeText(context, txt, Toast.LENGTH_SHORT).show();
-    }
-
-    public static void makeToastLONG(String txt, Context context) {
-        Toast.makeText(context, txt, Toast.LENGTH_LONG).show();
-    }
 
     public static <T> T createRxService(final Class<T> rxService, boolean log) {
         if (log) {

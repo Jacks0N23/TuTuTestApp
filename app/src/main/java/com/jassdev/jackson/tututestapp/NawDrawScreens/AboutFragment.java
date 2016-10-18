@@ -6,14 +6,11 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.jassdev.jackson.tututestapp.R;
 
 
 public class AboutFragment extends Fragment {
-
-    TextView copyR;
 
     @Nullable
     @Override

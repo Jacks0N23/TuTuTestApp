@@ -51,11 +51,6 @@ public class SearchableSpinner extends TextView implements SearchView.OnQueryTex
             dialog = alertDialog.create();
             dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams
                     .SOFT_INPUT_STATE_HIDDEN);
-
-            if (mAdapter.getGroupCount() == 0)
-                Utils.makeToastSHORT("Станции ещё не успели загрузиться, подождите пожалуйста", getContext());
-            else
-                dialog.show();
         }
     };
 
@@ -108,7 +103,7 @@ public class SearchableSpinner extends TextView implements SearchView.OnQueryTex
         listViewItems.setOnGroupClickListener((parent, v, groupPosition, id) -> {
             //Если что-то фильтруется, то мы получаем текст с группы
             if (!getAdapter().filtered.isEmpty()) {
-                item = (String) getAdapter().getGroup(groupPosition);
+                item = getAdapter().getGroup(groupPosition);
                 refreshSpinner(false);
                 //я думаю удобно будет, чтобы запрос чистился после того, как результат считан
                 //можно без проблем конечно ставить его, но думаю это не так удобно
@@ -122,7 +117,7 @@ public class SearchableSpinner extends TextView implements SearchView.OnQueryTex
         listViewItems.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
             //Если ничего не фильтруется, то мы получаем текст от чайлд вью
             if (getAdapter().filtered.isEmpty()) {
-                item = (String) getAdapter().getChild(groupPosition, childPosition);
+                item = getAdapter().getChild(groupPosition, childPosition);
                 refreshSpinner(false);
                 mListener.onItemsSelected(item);
                 dialog.dismiss();

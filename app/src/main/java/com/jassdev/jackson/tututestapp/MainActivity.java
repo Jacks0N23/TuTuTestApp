@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        assert getSupportActionBar() != null;
         getSupportActionBar().setTitle("Расписание");
         getFragmentManager().beginTransaction().replace(R.id.main_frame, fragment).commit();
 
@@ -60,12 +61,12 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_schedule) {
             fragment = new ScheduleFragment();
-            fragment.setArguments(modelBundle);
+            fragment.setArguments(modelBundle); // а здесь мы её передаём обратно, при возвращении
             if (getSupportActionBar() != null)
                 getSupportActionBar().setTitle("Расписание");
 
         } else if (id == R.id.nav_about) {
-            if (fragment != null)
+            if (fragment != null) //если фрагмент не нулл, то мы забираем у него модель со скаченными и распаршенными данными
                 modelBundle.putParcelable(DOWNLOADED_JSON, ScheduleFragment.model);
             fragment = new AboutFragment();
             if (getSupportActionBar() != null)
