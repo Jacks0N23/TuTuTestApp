@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+
+
+    <TextView
+        android:text="@string/copyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/copyright"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+        android:textStyle="normal|italic"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Made by Alexandr Guzenko (Jackson) from JassDev"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/madeByJackson"
+        android:layout_marginBottom="50dp"
+        android:layout_above="@+id/copyright"
+        android:layout_centerHorizontal="true"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textAlignment="center" />
+</RelativeLayout>
